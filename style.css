@@ -1,0 +1,408 @@
+/* --- CUSTOM PROPERTIES --- */
+:root {
+  --bg-color-dark: #121212;
+  --bg-color-light: #1e1e1e;
+  --bg-color-card: #2a2a2a;
+  --border-color: #383838;
+  --text-color-light: #e0e0e0;
+  --text-color-dark: #a0a0a0;
+  --white: #ffffff;
+  
+  --color-fuchsia: #e91e63;
+  --color-purple: #9c27b0;
+  --color-orange: #ff5722;
+
+  --gradient: linear-gradient(to bottom, var(--color-fuchsia), var(--color-purple), var(--color-orange));
+  --gradient-horizontal: linear-gradient(to right, var(--color-fuchsia), var(--color-orange));
+  
+  --font-family: 'Poppins', sans-serif;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- BASE STYLES --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-light);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  color: var(--white);
+  font-weight: 600;
+}
+
+/* --- MAIN LAYOUT --- */
+.portfolio-container {
+  display: flex;
+  max-width: 1400px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+  width: 320px;
+  background-color: var(--bg-color-light);
+  padding: 30px;
+  border-radius: 20px;
+  position: sticky;
+  top: 40px;
+  align-self: flex-start;
+  box-shadow: var(--shadow);
+}
+
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-avatar-wrapper {
+  padding: 8px;
+  background: var(--gradient);
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  background-color: var(--bg-color-card);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-avatar .fa-user {
+  font-size: 60px;
+  color: var(--text-color-dark);
+}
+
+.name {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+}
+
+.title {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-color-light);
+  background: var(--bg-color-card);
+  padding: 5px 15px;
+  border-radius: 8px;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background: var(--border-color);
+  margin: 25px 0;
+}
+
+.contact-list {
+  width: 100%;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-align: left;
+  /* Add transition for smooth hover effects */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.contact-item:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+/* New hover effect for contact items */
+.contact-item:hover {
+  transform: translateX(5px); /* Move slightly to the right */
+  box-shadow: 0 0 15px rgba(233, 30, 99, 0.5); /* Fuchsia glow */
+}
+
+.icon-box {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: var(--bg-color-card);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: var(--color-fuchsia);
+}
+.contact-item:nth-child(2) .icon-box { color: var(--color-purple); }
+.contact-item:nth-child(3) .icon-box { color: var(--color-orange); }
+.contact-item:nth-child(4) .icon-box { color: var(--color-fuchsia); }
+
+.contact-title {
+  color: var(--text-color-dark);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.contact-link, time, address {
+  font-size: 0.9rem;
+  font-style: normal;
+}
+
+.social-list {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  font-size: 1.2rem;
+  color: var(--text-color-dark);
+  transition: color 0.3s;
+}
+.social-link:hover {
+  color: var(--text-color-light);
+}
+
+/* --- MAIN CONTENT --- */
+.main-content {
+  flex-grow: 1;
+  margin-left: 30px;
+  background-color: var(--bg-color-light);
+  border-radius: 20px;
+  padding: 30px;
+  border: 2px solid transparent;
+  border-image: var(--gradient) 1;
+  box-shadow: var(--shadow);
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: flex-end;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.navbar-link {
+  font-weight: 500;
+  color: var(--text-color-dark);
+  transition: color 0.3s;
+}
+
+.navbar-link.active,
+.navbar-link:hover {
+  color: var(--color-fuchsia);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--gradient-horizontal);
+  border-radius: 2px;
+  margin-top: 8px;
+}
+
+/* --- START: INTERACTIVE SECTION STYLING (NEW) --- */
+/* Styles for the main sections on hover */
+.doing-section,
+.projects-section,
+.certificates-section,
+.courses-section {
+    padding: 30px;
+    border: 2px solid var(--border-color);
+    border-radius: 20px;
+    background: var(--bg-color-light);
+    /* Transition the border and shadow for a smooth "light up" effect */
+    transition: border-image 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+
+.doing-section:hover,
+.projects-section:hover,
+.certificates-section:hover,
+.courses-section:hover {
+    /* Apply the vertical gradient to the border on hover */
+    border-image-source: linear-gradient(to bottom, #e91e63, #9c27b0, #ff5722);
+    border-image-slice: 1;
+    /* Add a subtle glow effect using the purple from the gradient */
+    box-shadow: 0 0 25px rgba(156, 39, 176, 0.3);
+}
+/* --- END: INTERACTIVE SECTION STYLING (NEW) --- */
+
+section:not(:last-child) {
+  margin-bottom: 40px;
+}
+
+.about-text {
+  color: var(--text-color-light);
+  line-height: 1.8;
+}
+
+/* Grid for cards */
+.grid-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Service / "What I'm Doing" cards */
+.service-item, .project-item, .certificate-item, .course-item {
+  background: var(--bg-color-card);
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  /* Ensure smooth transition for the new box-shadow */
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out, border-color 0.3s ease-out;
+}
+
+/* Enhanced "light up" effect on hover for individual items */
+.service-item:hover, .project-item:hover, .certificate-item:hover, .course-item:hover {
+    transform: translateY(-5px);
+    /* Vibrant glow effect using electric purple */
+    box-shadow: 0 0 20px rgba(156, 39, 176, 0.6), 0 8px 15px rgba(0, 0, 0, 0.4);
+    /* Optional: subtle change to border color to match glow */
+    border-color: rgba(156, 39, 176, 0.4);
+}
+
+.service-icon-box {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+.service-icon-box .fa-shield-halved { color: var(--color-fuchsia); }
+.service-icon-box .fa-python { color: var(--color-purple); }
+.service-icon-box .fa-screwdriver-wrench { color: var(--color-orange); }
+.service-icon-box .fa-laptop-code { color: var(--color-fuchsia); }
+
+.service-title {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.service-text {
+  color: var(--text-color-dark);
+  font-size: 0.95rem;
+}
+
+/* Project cards */
+.project-img {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    background-size: cover;
+    background-position: center;
+}
+.project-title {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+.project-category {
+    color: var(--text-color-dark);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.tags span {
+    display: inline-block;
+    background: var(--bg-color-light);
+    color: var(--text-color-dark);
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-right: 5px;
+}
+
+/* Certificate Cards */
+.certificate-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.cert-icon {
+    font-size: 2rem;
+    color: var(--color-fuchsia);
+}
+.certificate-item:nth-of-type(2n) .cert-icon { color: var(--color-purple); }
+.cert-title {
+    font-size: 1.1rem;
+}
+.cert-issuer {
+    color: var(--text-color-dark);
+    font-size: 0.9rem;
+}
+
+/* Course Cards */
+.course-title {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+.course-provider {
+    color: var(--text-color-dark);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+.course-provider .fa-school { margin-right: 5px; }
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--bg-color-light);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.progress {
+    height: 100%;
+    background: var(--gradient-horizontal);
+    border-radius: 4px;
+}
+
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 1200px) {
+  .portfolio-container {
+    flex-direction: column;
+    margin: 20px auto;
+  }
+  .sidebar {
+    width: 100%;
+    position: static;
+    margin-bottom: 30px;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+    .navbar-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    .grid-list {
+        grid-template-columns: 1fr;
+    }
+}
